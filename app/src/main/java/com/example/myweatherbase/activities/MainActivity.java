@@ -6,14 +6,20 @@ import android.widget.TextView;
 
 import com.example.myweatherbase.API.Connector;
 import com.example.myweatherbase.R;
+import com.example.myweatherbase.activities.model.Root;
 import com.example.myweatherbase.base.BaseActivity;
 import com.example.myweatherbase.base.CallInterface;
 import com.example.myweatherbase.base.ImageDownloader;
 import com.example.myweatherbase.base.Parameters;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends BaseActivity implements CallInterface {
 
     private TextView txtView ;
+    private TextView textViewDay;
+    private TextView textViewDayOfWeek;
     private ImageView imageView;
     private Root root;
     @Override
@@ -21,6 +27,9 @@ public class MainActivity extends BaseActivity implements CallInterface {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        txtView = findViewById(R.id.txtView);
+        textViewDay = findViewById(R.id.textViewDay);
+        textViewDayOfWeek = findViewById(R.id.textViewDayOfWeek);
         txtView = findViewById(R.id.txtView);
         imageView = findViewById(R.id.imageView);
 
@@ -41,5 +50,11 @@ public class MainActivity extends BaseActivity implements CallInterface {
         hideProgress();
         txtView.setText(root.list.get(0).weather.get(0).description);
         ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, imageView);
+
+        Date date = new Date((long)root.list.get(0).dt*1000);
+        SimpleDateFormat dateDayOfWeek = new SimpleDateFormat("E");
+        SimpleDateFormat dateDay = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
+        textViewDayOfWeek.setText(dateDayOfWeek.format(date));
+        textViewDay.setText(dateDay.format(date));
     }
 }
