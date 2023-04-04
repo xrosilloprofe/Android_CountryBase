@@ -1,4 +1,4 @@
-package com.example.myweatherbase.activities.model;
+package com.example.myweatherbase.activities;
 
 // Class obtained from https://json2csharp.com/code-converters/json-to-pojo
 // and modified by adding Serializable interface
