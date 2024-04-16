@@ -1,4 +1,4 @@
-package com.example.myweatherbase.base;
+package com.example.myweatherapp_2324.base;
 
 public interface CallInterface {
 

@@ -1,4 +1,4 @@
-package com.example.myweatherbase.base;
+package com.example.myweatherapp_2324.base;
 
 import android.content.Context;
 import android.util.AttributeSet;
