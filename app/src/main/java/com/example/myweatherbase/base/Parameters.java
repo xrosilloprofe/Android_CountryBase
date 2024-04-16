@@ -1,8 +1,8 @@
-package com.example.myweatherapp_2324.base;
+package com.example.myweatherbase.base;
 
 public class Parameters {
 
-    public final static String API = "df970d067dff6eabab36462d514ee0a0";
+    public final static String API = "<put_your_API_Key_here>";
     public final static String LANG = "es";
     public final static String UNITS = "metric";
     public final static String URL = "https://api.openweathermap.org/data/2.5/";

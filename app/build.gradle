@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.myweatherapp_2324'
+    namespace 'com.example.myweatherbase'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.myweatherapp_2324"
+        applicationId "com.example.myweatherbase"
         minSdk 24
         targetSdk 33
         versionCode 1

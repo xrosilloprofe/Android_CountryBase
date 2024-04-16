@@ -1,16 +1,16 @@
-package com.example.myweatherapp_2324.activities;
+package com.example.myweatherbase.activities;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myweatherapp_2324.API.Connector;
-import com.example.myweatherapp_2324.R;
-import com.example.myweatherapp_2324.activities.model.Root;
-import com.example.myweatherapp_2324.base.BaseActivity;
-import com.example.myweatherapp_2324.base.CallInterface;
-import com.example.myweatherapp_2324.base.ImageDownloader;
-import com.example.myweatherapp_2324.base.Parameters;
+import com.example.myweatherbase.API.Connector;
+import com.example.myweatherbase.R;
+import com.example.myweatherbase.activities.model.Root;
+import com.example.myweatherbase.base.BaseActivity;
+import com.example.myweatherbase.base.CallInterface;
+import com.example.myweatherbase.base.ImageDownloader;
+import com.example.myweatherbase.base.Parameters;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
         txtView = findViewById(R.id.txtView);
         textViewDay = findViewById(R.id.textViewDay);
         textViewDayOfWeek = findViewById(R.id.textViewDayOfWeek);
+        txtView = findViewById(R.id.txtView);
         imageView = findViewById(R.id.imageView);
 
         // Mostramos la barra de progreso y ejecutamos la llamada a la API

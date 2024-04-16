@@ -1,4 +1,4 @@
-package com.example.myweatherapp_2324.API;
+package com.example.myweatherbase.API;
 
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;

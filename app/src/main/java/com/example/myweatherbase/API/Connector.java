@@ -1,7 +1,7 @@
-package com.example.myweatherapp_2324.API;
+package com.example.myweatherbase.API;
 
 
-import com.example.myweatherapp_2324.base.Parameters;
+import com.example.myweatherbase.base.Parameters;
 
 import java.util.List;
 
