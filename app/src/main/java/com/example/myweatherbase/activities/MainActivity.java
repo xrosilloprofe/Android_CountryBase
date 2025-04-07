@@ -22,6 +22,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
     private TextView textViewDayOfWeek;
     private ImageView imageView;
     private Root root;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

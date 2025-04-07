@@ -2,6 +2,7 @@ package com.example.myweatherbase.base;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.ImageView;
 
@@ -20,6 +21,10 @@ public class ImageDownloader {
     public static void downloadImage(String url, ImageView imageView){
         Picasso.get().load(url).into(imageView);
     }
+    public static void downloadImage(String url, Drawable errorDrawable, ImageView imageView){
+        Picasso.get().load(url).error(errorDrawable).into(imageView);
+    }
+
 
     public static void downloadImage(Context context, String url, ImageView imageView, int defaultDrawable){
         ImageRequest peticion = new ImageRequest(
