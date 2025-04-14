@@ -12,8 +12,10 @@ import com.example.myweatherbase.base.CallInterface;
 import com.example.myweatherbase.base.ImageDownloader;
 import com.example.myweatherbase.base.Parameters;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class MainActivity extends BaseActivity implements CallInterface {
 
@@ -41,14 +43,13 @@ public class MainActivity extends BaseActivity implements CallInterface {
 
     // Realizamos la llamada y recogemos los datos en un objeto Root
     @Override
-    public void doInBackground() {
+    public void doInBackground() throws Exception {
         root = Connector.getConector().get(Root.class,"&lat=39.5862518&lon=-0.5411163");
     }
 
     // Una vez ya se ha realizado la llamada, ocultamos la barra de progreso y presentamos los datos
     @Override
     public void doInUI() {
-        hideProgress();
         txtView.setText(root.list.get(0).weather.get(0).description);
         ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, imageView);
 
@@ -58,4 +59,5 @@ public class MainActivity extends BaseActivity implements CallInterface {
         textViewDayOfWeek.setText(dateDayOfWeek.format(date));
         textViewDay.setText(dateDay.format(date));
     }
+
 }

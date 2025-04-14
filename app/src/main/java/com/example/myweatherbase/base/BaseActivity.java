@@ -26,10 +26,18 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void executeCall(CallInterface callInterface){
         executor.execute(() -> {
-            callInterface.doInBackground();
-            handler.post(() -> {
-                callInterface.doInUI();
-            });
+            try {
+                callInterface.doInBackground();
+                handler.post(() -> {
+                    hideProgress();
+                    callInterface.doInUI();
+                });
+            } catch (Exception e){
+                handler.post(()->{
+                    hideProgress();
+                    callInterface.doInError(BaseActivity.this,e);
+                });
+            }
         });
     }
 
