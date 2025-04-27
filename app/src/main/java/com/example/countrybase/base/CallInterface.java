@@ -1,4 +1,4 @@
-package com.example.myweatherbase.base;
+package com.example.countrybase.base;
 
 import android.content.Context;
 import android.widget.Toast;

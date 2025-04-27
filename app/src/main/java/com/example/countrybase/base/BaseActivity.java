@@ -1,11 +1,11 @@
-package com.example.myweatherbase.base;
+package com.example.countrybase.base;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myweatherbase.API.Connector;
+import com.example.countrybase.API.Connector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

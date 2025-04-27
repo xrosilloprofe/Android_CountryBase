@@ -1,16 +1,16 @@
-package com.example.myweatherbase.activities;
+package com.example.countrybase.activities;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myweatherbase.API.Connector;
-import com.example.myweatherbase.R;
-import com.example.myweatherbase.activities.model.Root;
-import com.example.myweatherbase.base.BaseActivity;
-import com.example.myweatherbase.base.CallInterface;
-import com.example.myweatherbase.base.ImageDownloader;
-import com.example.myweatherbase.base.Parameters;
+import com.example.countrybase.API.Connector;
+import com.example.countrybase.R;
+import com.example.countrybase.activities.model.Pais;
+import com.example.countrybase.base.BaseActivity;
+import com.example.countrybase.base.CallInterface;
+import com.example.countrybase.base.ImageDownloader;
+import com.example.countrybase.base.Parameters;
 
 
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
     private TextView textViewDay;
     private TextView textViewDayOfWeek;
     private ImageView imageView;
-    private Root root;
+    private Pais pais;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
         textViewDay = findViewById(R.id.textViewDay);
         textViewDayOfWeek = findViewById(R.id.textViewDayOfWeek);
         txtView = findViewById(R.id.txtView);
-        imageView = findViewById(R.id.imageView);
+        imageView = findViewById(R.id.ivBandera);
 
         // Mostramos la barra de progreso y ejecutamos la llamada a la API
         showProgress();
@@ -44,16 +44,16 @@ public class MainActivity extends BaseActivity implements CallInterface {
     // Realizamos la llamada y recogemos los datos en un objeto Root
     @Override
     public void doInBackground() throws Exception {
-        root = Connector.getConector().get(Root.class,"&lat=39.5862518&lon=-0.5411163");
+        pais = Connector.getConector().get(Pais.class,"&lat=39.5862518&lon=-0.5411163");
     }
 
     // Una vez ya se ha realizado la llamada, ocultamos la barra de progreso y presentamos los datos
     @Override
     public void doInUI() {
-        txtView.setText(root.list.get(0).weather.get(0).description);
-        ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + root.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, imageView);
+        txtView.setText(pais.list.get(0).weather.get(0).description);
+        ImageDownloader.downloadImage(Parameters.ICON_URL_PRE + pais.list.get(0).weather.get(0).icon + Parameters.ICON_URL_POST, imageView);
 
-        Date date = new Date((long)root.list.get(0).dt*1000);
+        Date date = new Date((long) pais.list.get(0).dt*1000);
         SimpleDateFormat dateDayOfWeek = new SimpleDateFormat("E");
         SimpleDateFormat dateDay = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
         textViewDayOfWeek.setText(dateDayOfWeek.format(date));

@@ -1,4 +1,4 @@
-package com.example.myweatherbase;
+package com.example.countrybase;
 
 import org.junit.Test;
 

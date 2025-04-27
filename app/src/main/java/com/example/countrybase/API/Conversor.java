@@ -1,4 +1,4 @@
-package com.example.myweatherbase.API;
+package com.example.countrybase.API;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

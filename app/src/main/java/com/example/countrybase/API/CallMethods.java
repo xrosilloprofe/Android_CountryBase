@@ -1,9 +1,9 @@
-package com.example.myweatherbase.API;
+package com.example.countrybase.API;
 
 
 
 
-import com.example.myweatherbase.base.Parameters;
+import com.example.countrybase.base.Parameters;
 
 import java.io.IOException;
 

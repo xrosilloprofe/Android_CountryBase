@@ -1,7 +1,7 @@
-package com.example.myweatherbase.API;
+package com.example.countrybase.API;
 
 
-import com.example.myweatherbase.base.Parameters;
+import com.example.countrybase.base.Parameters;
 
 import java.util.List;
 import java.util.Map;
