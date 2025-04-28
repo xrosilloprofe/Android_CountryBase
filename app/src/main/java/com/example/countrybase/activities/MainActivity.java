@@ -15,6 +15,7 @@ import com.example.countrybase.base.Parameters;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 public class MainActivity extends BaseActivity implements CallInterface {
@@ -23,7 +24,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
     private TextView textViewDay;
     private TextView textViewDayOfWeek;
     private ImageView imageView;
-    private Pais pais;
+    private List<Pais> paises;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class MainActivity extends BaseActivity implements CallInterface {
     // Realizamos la llamada y recogemos los datos en un objeto Root
     @Override
     public void doInBackground() throws Exception {
-        pais = Connector.getConector().get(Pais.class,"&lat=39.5862518&lon=-0.5411163");
+        paises = Connector.getConector().getAsList(Pais.class,"pais");
     }
 
     // Una vez ya se ha realizado la llamada, ocultamos la barra de progreso y presentamos los datos
