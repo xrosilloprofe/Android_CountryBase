@@ -1,29 +1,19 @@
 package com.example.countrybase.activities;
 
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.countrybase.API.Connector;
 import com.example.countrybase.R;
 import com.example.countrybase.activities.model.Pais;
 import com.example.countrybase.base.BaseActivity;
 import com.example.countrybase.base.CallInterface;
-import com.example.countrybase.base.ImageDownloader;
-import com.example.countrybase.base.Parameters;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 
-public class MainActivity extends BaseActivity implements CallInterface {
+public class MainActivity extends BaseActivity implements CallInterface<List<Pais>> {
 
-    private TextView txtView ;
-    private TextView textViewDay;
-    private TextView textViewDayOfWeek;
-    private ImageView imageView;
     private List<Pais> paises;
 
     @Override
@@ -38,14 +28,14 @@ public class MainActivity extends BaseActivity implements CallInterface {
 
     // Realizamos la llamada y recogemos los datos en un objeto Root
     @Override
-    public void doInBackground() throws Exception {
-        paises = Connector.getConector().getAsList(Pais.class,"pais");
+    public List<Pais> doInBackground() throws Exception {
+        return Connector.getConector().getAsList(Pais.class,"pais");
     }
 
     // Una vez ya se ha realizado la llamada, ocultamos la barra de progreso y presentamos los datos
     @Override
-    public void doInUI() {
-
+    public void doInUI(List<Pais> data) {
+        paises=data;
     }
 
 }
