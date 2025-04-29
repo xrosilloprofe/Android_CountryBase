@@ -9,16 +9,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-@Builder
+
 public class Pais implements Serializable {
 
     private String nombre;
     private String url;
 
+    public Pais(String nombre, String url) {
+        this.nombre = nombre;
+        this.url = url;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 }
 

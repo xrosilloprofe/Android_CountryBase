@@ -1,8 +1,5 @@
 package com.example.countrybase.API;
 
-
-
-
 import com.example.countrybase.base.Parameters;
 
 import java.io.IOException;
