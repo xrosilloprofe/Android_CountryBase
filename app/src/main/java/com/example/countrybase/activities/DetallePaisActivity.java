@@ -33,17 +33,18 @@ public class DetallePaisActivity extends BaseActivity {
         buttonAceptar = findViewById(R.id.buttonAceptar);
         buttonCancelar = findViewById(R.id.buttonCancelar);
 
-        Pais pais = null;
-        if(getIntent().getExtras()!=null)
+        Pais pais=null;
+        if(getIntent().getExtras()!=null){
+            //viene con datos
             pais = (Pais) getIntent().getExtras().getSerializable("pais");
+        }
 
         if(pais!=null){
-//            buttonCancelar.setVisibility(INVISIBLE);
             buttonAceptar.setVisibility(INVISIBLE);
-            etNombre.setEnabled(false);
             etURL.setEnabled(false);
-            etNombre.setText(pais.getNombre());
+            etNombre.setEnabled(false);
             etURL.setText(pais.getUrl());
+            etNombre.setText(pais.getNombre());
             Picasso.get().load(pais.getUrl()).into(ivBanderaDetail);
         }
 
@@ -55,21 +56,21 @@ public class DetallePaisActivity extends BaseActivity {
                 finish();
             }
         });
-
-        buttonAceptar.setOnClickListener( view -> {
+        
+        buttonAceptar.setOnClickListener(view -> {
             executeCall(new CallInterface<Pais>() {
                 @Override
                 public Pais doInBackground() throws Exception {
-                    Pais pais1 = new Pais(etNombre.getText().toString(),
+                    Pais pais = new Pais(etNombre.getText().toString(),
                             etURL.getText().toString());
-                    return Connector.getConector().post(Pais.class,pais1,"pais");
+                    return Connector.getConector().post(Pais.class,pais,"pais");
                 }
 
                 @Override
                 public void doInUI(Pais data) {
                     Intent intent = new Intent();
-                    intent.putExtra("pais",data);
                     setResult(RESULT_OK,intent);
+                    intent.putExtra("pais",data);
                     finish();
                 }
             });
